@@ -3,6 +3,7 @@ interactiveMapApp.controller('interactiveMapController', function ($scope){
 	// states in states-object.js are defined inside a function. we call the function here to define the state objects
 	resetStates(); 
 	$scope.states = states;
+    calculateStateTotals();
 
     $scope.stateClicked = function(state){
         var newColor = getNewColor(state);
@@ -10,15 +11,19 @@ interactiveMapApp.controller('interactiveMapController', function ($scope){
 
     function getNewColor(state){
         if(state.stateColor === "red"){
-            //Reassign state color from red to blue
             state.stateColor = "blue";
-        } else if(state.stateColor === "blue"){
+            blueStates[state.id] = state;
+            redStates[state.id] = "";
+        }else if(state.stateColor === "blue"){
             state.stateColor = "open";
-        } else if(state.stateColor === "open"){
+            openStates[state.id] = state;
+            blueStates[state.id] = "";
+        }else if(state.stateColor === "open"){
             state.stateColor = "red";
-        }else{
-            return "Are you part of the green party?";
+            redStates[state.id] = state;
+            openStates[state.id] = "";
         }
+        calcStateTotals();
     }
 
     function calculateStateTotals(){
@@ -28,9 +33,9 @@ interactiveMapApp.controller('interactiveMapController', function ($scope){
     	for(i=0; i<numStates;i++)
     		if(blueStates[i]){
     			$scope.blueStateVotes += blueStates[i].electoralVotes;
-    		}else if(redStatesi[i]){
+    		}else if(redStates[i]){
     			$scope.redStateVotes += redStates[i].electoralVotes;
-    		}else if (redStatesi[i]){
+    		}else if (redStates[i]){
     			$scope.openStateVotes += openStates[i].electoralVotes;
     		}
     	}
