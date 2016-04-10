@@ -13,7 +13,6 @@ body{
 	/* color puts the color in the party name text */
 	color: #BA3A33;
 }
-
 .blue{
 	fill: #445E96;
 	color: #445E96;;
@@ -38,20 +37,24 @@ body{
 	font-size: 12px;
 }
 
-#vote-bar-wrap{
+#vote-bar-wrapper {
 	overflow: hidden;
 	position: relative;
 	top: 0;
 	left: 0;
 	width: 750px;
+	margin:auto;
 }
 
-#vote-bar-wrap .red{
+#vote-bar-wrapper .red{
 	float: right;
+}
+#vote-bar-wrapper .blue{
+	float: left;
 }
 
 .bar{
-	height: 30px;
+	height: 20px;
 }
 
 #blue-bar{
@@ -67,4 +70,17 @@ body{
 #open-bar{
 	background-color: #c2b280;
 	float:left;		
+}
+
+#color-bar{
+	clear:both;
+	text-align: center;
+}
+table{
+	position: absolute;
+	top: 300px;
+	left: 650px;
+	color: white;
+	float: right;
+	font-size: 20px;
 }
