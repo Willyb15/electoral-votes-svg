@@ -11,19 +11,19 @@ interactiveMapApp.controller('interactiveMapController', function ($scope){
     };
 
     function getNewColor(state){
-        if(state.stateColor === "red"){
+        if(state.stateColor == "red"){
             // reassign color from red to blue
             state.stateColor = "blue";
             $scope.blueStateVotes += state.electoralVotes;
-            $scope.redStateVotes += state.electoralVotes;
-        }else if(state.stateColor === "blue"){
+            $scope.redStateVotes -= state.electoralVotes;
+        }else if(state.stateColor == "blue"){
             state.stateColor = "open";
             $scope.openStateVotes += state.electoralVotes;
-            $scope.blueStateVotes += state.electoralVotes;
-        }else if(state.stateColor === "open"){
+            $scope.blueStateVotes -= state.electoralVotes;
+        }else if(state.stateColor == "open"){
             state.stateColor = "red";
             $scope.redStateVotes += state.electoralVotes;
-            $scope.openStateVotes += state.electoralVotes;
+            $scope.openStateVotes -= state.electoralVotes;
         }
         // calcStateTotals();
         $scope.blueWidth = (($scope.blueStateVotes / 538) * 100) + '%'; 
@@ -41,7 +41,7 @@ interactiveMapApp.controller('interactiveMapController', function ($scope){
     			$scope.blueStateVotes += blueStates[i].electoralVotes;
     		}else if(redStates[i]){
     			$scope.redStateVotes += redStates[i].electoralVotes;
-    		}else if (redStates[i]){
+    		}else if (openStates[i]){
     			$scope.openStateVotes += openStates[i].electoralVotes;
     		}
     	}
