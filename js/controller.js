@@ -6,6 +6,12 @@ interactiveMapApp.controller('interactiveMapController', function ($scope){
     $scope.smallStates = smallStates;
     calculateStateTotals();
 
+    $scope.reset = function(){
+        resetStates();
+        $scope.states = states;
+        calculateStateTotals();
+    };
+
     $scope.stateClicked = function(state){
         var newColor = getNewColor(state);
     };
@@ -51,4 +57,8 @@ interactiveMapApp.controller('interactiveMapController', function ($scope){
     	$scope.openWidth = (($scope.openStateVotes / 538) * 100) + '%';
     	console.log($scope.blueWidth);
     }
+
+
+
+
 );
