@@ -10,7 +10,6 @@ function State(id,name,abbr,stateColor,electoralVotes,nameX, nameY,vector, isSma
     this.isSmall = isSmall;
     this.smallStateVal = smallStateVal;
 }
-	
 
 function resetStates(){
     //init arrays
@@ -91,5 +90,5 @@ function resetStates(){
     }
     
     numStates = states.length;
-
+    console.log(states);
 }
