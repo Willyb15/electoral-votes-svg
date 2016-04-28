@@ -22,9 +22,9 @@ function resetStates(){
     redStates = [];
     openStates = [];
     smallStates = [];
-	states.push(new State(0,"Alabama","AL","red",9,"498.65026993738195",904367521223L501.811,...,false,0));
+	states.push(new State(0,"Alabama","AL","red",9,"498.65026993738195",false,0));
 	states.push(new State(1,"Alaska","AK","red",3,".52507095L45.686552491678796,471.9223",false,0))
-	states.push(new State(2,"Arizona","AZ","red",11,"140.01684121050394",",false,0))
+	states.push(new State(2,"Arizona","AZ","red",11,"140.01684121050394",false,0))
 ```
 
 ###Each state has 3 options for their total Electoral votes to count towards
