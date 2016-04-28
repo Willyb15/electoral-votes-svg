@@ -5,7 +5,6 @@
 ###When the state is clicked the options are toggled and total Electoral Votes is updated accordingly
 ####This is the HTML for drawing the SVG's with "foreign objects"
 ```html
-<div id="map-wrapper">
 			<svg width="750" height="500">
 				<g ng-repeat="state in states | filter: isSmall = false" ng-click="stateClicked(state)">
 					<path class="state {{state.stateColor}}" ng-attr-d="{{state.vector}}" stroke="white"></path>
