@@ -3,7 +3,7 @@
 ###Each state has 3 options for their total Electoral votes to count towards
 ####Democrat, Republican, or Independent
 ###When the state is clicked the options are toggled and total Electoral Votes is updated accordingly
-####This is the HTML for drawing the SVG's with "foreign objects"
+####This is the HTML for drawing the SVG's with "foreign objects" with data injected into the view Using Angular
 ```html
 			<svg width="750" height="500">
 				<g ng-repeat="state in states | filter: isSmall = false" ng-click="stateClicked(state)">
@@ -14,6 +14,9 @@
 						</div>
 					</foreignObject>
 				</g>
+```
+###Angular to inject State Abbreviation into Map and add a click listener 
+```html
 				<g ng-repeat="state in states | filter: isSmall = true" ng-click="stateClicked(state)">
 					<path class="state {{state.stateColor}}" ng-attr-d="{{state.vector}}" stroke="white"></path>
 				</g>		
