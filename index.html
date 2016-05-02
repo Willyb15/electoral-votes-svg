@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html ng-app="interactiveMapApp">
-<head>
-	<title>Interactive Map</title>
-
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-	<script type="text/javascript" src="js/states-object.js"></script>
-	<script type="text/javascript" src="js/controller.js"></script>
-
-</head>
-<body ng-controller="interactiveMapController">
-	
-	<div id="wrapper">
-		<div id="vote-bar-wrapper">
-			<div class="arrow top"></div>
-			<div class="arrow bottom"></div>
-			<h3 class="blue">Democrat</h3>
-			<h3 class="red">Republican</h3>
-			<div id="color-bar">
-				<div id="blue-bar" class="bar blue-bar" ng-style="{'width':blueWidth}">{{blueStateVotes}}</div>
-				<div id="open-bar" class="bar open-bar" ng-style="{'width':openWidth}">{{openStateVotes}}</div>
-				<div id="red-bar" class="bar red-bar" ng-style="{'width':redWidth}">{{redStateVotes}}</div>
+	<head>
+		<title>Interactive Map</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script type="text/javascript" src="js/states-object.js"></script>
+		<script type="text/javascript" src="js/controller.js"></script>
+	</head>
+	<body ng-controller="interactiveMapController">
+		
+		<div id="wrapper">
+		<div id="message"></div>
+			<div id="vote-bar-wrapper">
+				<div class="arrow top"></div>
+				<div class="arrow bottom"></div>
+				<h3 class="blue">Democrat</h3>
+				<h3 class="red">Republican</h3>
+				<div id="color-bar">
+					<div id="blue-bar" class="bar blue-bar" ng-style="{'width':blueWidth}">{{blueStateVotes}}</div>
+					<div id="open-bar" class="bar open-bar" ng-style="{'width':openWidth}">{{openStateVotes}}</div>
+					<div id="red-bar" class="bar red-bar" ng-style="{'width':redWidth}">{{redStateVotes}}</div>
+				</div>
 			</div>
-		</div>
-
-		<div id="map-wrapper">
-			<svg width="750" height="500">
-				<g ng-repeat="state in states | filter: isSmall = false" ng-click="stateClicked(state)">
+			
+			<div id="map-wrapper">
+				<svg width="750" height="500">
+					<g ng-repeat="state in states | filter: isSmall = false" ng-click="stateClicked(state)">
 					<path class="state {{state.stateColor}}" ng-attr-d="{{state.vector}}" stroke="white"></path>
 					<foreignObject ng-attr-x="{{state.nameX}}" ng-attr-y="{{state.nameY}}">
-						<div class="state-info">
-							{{state.abbr}}<br />{{state.electoralVotes}}
-						</div>
+					<div class="state-info">
+						{{state.abbr}}<br />{{state.electoralVotes}}
+					</div>
 					</foreignObject>
 				</g>
 				<g ng-repeat="state in states | filter: isSmall = true" ng-click="stateClicked(state)">
-					<path class="state {{state.stateColor}}" ng-attr-d="{{state.vector}}" stroke="white"></path>
-				</g>		
-					<table>
-						<tr ng-repeat="state in states | filter: isSmall = true" ng-click="stateClicked(state)">
-							<td class="state {{state.stateColor}}">{{state.electoralVotes}}</td>
-							<td>{{state.abbr}}</td>
-						</tr>
-					</table>
-			</svg>
-		</div>
-		<button class="btn btn-default" ng-click="reset()">Reset Map</button>
+				<path class="state {{state.stateColor}}" ng-attr-d="{{state.vector}}" stroke="white"></path>
+			</g>
+			<table>
+				<tr ng-repeat="state in states | filter: isSmall = true" ng-click="stateClicked(state)">
+					<td class="state {{state.stateColor}}">{{state.electoralVotes}}</td>
+					<td>{{state.abbr}}</td>
+				</tr>
+			</table>
+		</svg>
 	</div>
+	<button class="btn btn-default" ng-click="reset()">Reset Map</button>
+
+	
+</div>
 </body>
 </html>
