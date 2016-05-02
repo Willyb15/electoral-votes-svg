@@ -1,4 +1,6 @@
 #An interactive map created with Angular data-binding and SVG's.
+![alt text](img/ss.png "Description goes here")
+<!--![My image](Willyb15.github.com/photo-gallery/Images/image1.jpg)-->
 ###Created JSON with State Election Data inside. Here's what first 3 state objects look like...I cut the SVG's data short since they were long as *heck;
 ```js
 function State(id,name,abbr,stateColor,electoralVotes,nameX, nameY,vector, isSmall, smallStateVal) {
